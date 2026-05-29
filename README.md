@@ -26,10 +26,44 @@ To implement MESSAGE AUTHENTICATION CODE(MAC)
 
 ## Program:
 
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char message[100], key[100];
+    char mac[200];
+    int i, sum = 0;
+
+    // Input message and secret key
+    printf("Enter the message: ");
+    scanf("%s", message);
+
+    printf("Enter the secret key: ");
+    scanf("%s", key);
+
+    // Concatenate key and message
+    strcpy(mac, key);
+    strcat(mac, message);
+
+    // Simple MAC generation using ASCII sum
+    for(i = 0; i < strlen(mac); i++)
+    {
+        sum += mac[i];
+    }
+
+    printf("\nGenerated MAC Value: %d\n", sum);
+
+    return 0;
+}
+
+
+
 
 
 ## Output:
+<img width="940" height="584" alt="image" src="https://github.com/user-attachments/assets/80381fef-0010-4c70-8b0d-a1f4cd77ba95" />
 
 
 ## Result:
-The program is executed successfully.
+The MESSAGE-AUTHENTICATION-CODE-MAC program is executed successfully.
